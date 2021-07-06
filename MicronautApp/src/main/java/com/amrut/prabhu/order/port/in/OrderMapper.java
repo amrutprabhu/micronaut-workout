@@ -1,10 +1,9 @@
-package com.amrut.prabhu.order.service;
+package com.amrut.prabhu.order.port.in;
 
 import com.amrut.prabhu.order.domain.Order;
-import com.amrut.prabhu.order.port.in.OrderDTO;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "jsr330")
+@Mapper
 public interface OrderMapper {
     Order toOrder(OrderDTO orderDTO);
 
