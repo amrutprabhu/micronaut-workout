@@ -1,0 +1,21 @@
+micronaut:
+  application:
+    name: micronautApp
+
+datasources:
+  default:
+#    url: ${JDBC_URL:`jdbc:h2:mem:default;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE`}
+    url: ${JDBC_URL:`jdbc:mysql://localhost:3306/ORDER`}
+    username: ${JDBC_USER:root}
+    password: ${JDBC_PASSWORD:root}
+#    driverClassName: ${JDBC_DRIVER:com.mysql.jdbc.Driver}
+
+
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
