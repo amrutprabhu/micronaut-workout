@@ -1,6 +1,6 @@
 = Micronaut With TestContainers and Mapstruct
 
-In this workout I am trying out how micronaut works. It apparently has better startup performance as compared to spring boot.
+In this workout I am trying out how to work with  micronaut. It apparently has better startup performance as compared to spring boot.
 
 Here, I have created a project which performs simple CRUD operation on orders.
 
