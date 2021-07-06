@@ -1,0 +1,11 @@
+= Micronaut Example Workout
+
+In this workout I am trying out how micronaut works. It apparently has better startup performance as compared to spring boot.
+
+Here, I have created a project which performs simple CRUD operation on orders.
+
+The code is designed using DDD hexagonal code structure, wherein the domain is decoupled from teh external dependencies using ports.
+
+I have also created a basic integration test with TestContainers to test the entire flow from controller to database.
+
+In order to get away from manually creating a mapper between the domain objects and the transfer objects, I have made use of https://mapstruct.org/[Mapstruct] to generate a mapper for me. This is also to see how mapstruct annotation processing works with micronaut
