@@ -55,10 +55,10 @@ class MicronautAppTest implements TestPropertyProvider {
 
     @Test
     void testPersistAndGetAllOrders() {
-        Order order = new Order();
-        order.setName("OrderName");
-        HttpRequest<Order> orderHttpRequest = HttpRequest.PUT("/order", order);
-        Order savedOrder = client.toBlocking().retrieve(orderHttpRequest, Order.class);
+        OrderDTO orderDTO = new OrderDTO();
+        orderDTO.setName("OrderName");
+        HttpRequest<OrderDTO> orderHttpRequest = HttpRequest.PUT("/order", orderDTO);
+        OrderDTO savedOrder = client.toBlocking().retrieve(orderHttpRequest, OrderDTO.class);
 
         assertThat(savedOrder.getId()).isNotNull();
 
@@ -68,10 +68,10 @@ class MicronautAppTest implements TestPropertyProvider {
 
     @Test
     void testPersistAndGetOrder() {
-        Order order = new Order();
-        order.setName("OrderName");
-        HttpRequest<Order> orderHttpRequest = HttpRequest.PUT("/order", order);
-        Order savedOrder = client.toBlocking().retrieve(orderHttpRequest, Order.class);
+        OrderDTO orderDTO = new OrderDTO();
+        orderDTO.setName("OrderName");
+        HttpRequest<OrderDTO> orderHttpRequest = HttpRequest.PUT("/order", orderDTO);
+        OrderDTO savedOrder = client.toBlocking().retrieve(orderHttpRequest, OrderDTO.class);
 
         assertThat(savedOrder.getId()).isNotNull();
 

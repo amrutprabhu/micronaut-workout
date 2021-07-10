@@ -5,9 +5,9 @@ import com.amrut.prabhu.order.port.in.OrderDTO;
 import com.amrut.prabhu.order.port.in.OrderMapper;
 import com.amrut.prabhu.order.port.in.OrderService;
 import com.amrut.prabhu.order.port.out.OrderRepository;
-import org.mapstruct.factory.Mappers;
 
 import javax.inject.Singleton;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -16,29 +16,32 @@ import java.util.stream.Collectors;
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
-    private final OrderMapper mapper = Mappers.getMapper(OrderMapper.class);
+    private final OrderMapper mapper;
 
-    public OrderServiceImpl(OrderRepository orderRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository, OrderMapper mapper) {
         this.orderRepository = orderRepository;
+        this.mapper = mapper;
     }
 
     @Override
     public Optional<OrderDTO> getOrder(Long id) {
-        Optional<Order> byId = orderRepository.findById(id);
-        return byId.map(mapper::toOrderDto);
+        Optional<Order> orderById = orderRepository.findById(id);
+        return orderById.map(mapper::toOrderDto);
     }
 
     @Override
     public List<OrderDTO> getOrders() {
-
+        List<OrderDTO> orders = new ArrayList<>();
         return orderRepository.getAllOrders()
-                .stream().map(mapper::toOrderDto)
+                .stream()
+                .map(mapper::toOrderDto)
                 .collect(Collectors.toList());
     }
 
     @Override
     public OrderDTO addOrder(OrderDTO orderDTO) {
         Order order = mapper.toOrder(orderDTO);
+        order.setId(null);
         Order saved = orderRepository.save(order);
         return mapper.toOrderDto(saved);
     }

@@ -3,8 +3,14 @@ package com.amrut.prabhu.order.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Orders")
+@Table(name = "Orders")
 public class Order {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private String name;
 
     public Order() {
     }
@@ -13,12 +19,6 @@ public class Order {
         this.id = id;
         this.name = name;
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    private String name;
 
     public Long getId() {
         return id;

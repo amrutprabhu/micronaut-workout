@@ -1,9 +1,10 @@
 package com.amrut.prabhu.order.adapter.in.web;
 
-import com.amrut.prabhu.order.domain.Order;
 import com.amrut.prabhu.order.port.in.OrderDTO;
 import com.amrut.prabhu.order.port.in.OrderService;
+import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
+import io.micronaut.http.annotation.Error;
 import io.micronaut.http.annotation.*;
 
 import java.util.List;
@@ -18,9 +19,8 @@ public class WebController {
         this.orderService = orderService;
     }
 
-
     @Get("/{id}")
-    public HttpResponse<OrderDTO> getOrders(@PathVariable("id") Long id) {
+    public HttpResponse<OrderDTO> getOrder(@PathVariable("id") Long id) {
 
         Optional<OrderDTO> mayBeOrder = orderService.getOrder(id);
         if (mayBeOrder.isPresent()) {
@@ -30,7 +30,7 @@ public class WebController {
     }
 
     @Get
-    public HttpResponse<List<OrderDTO>> getAllProducts() {
+    public HttpResponse<List<OrderDTO>> getAllOrders() {
         return HttpResponse.ok(this.orderService.getOrders());
     }
 
@@ -38,6 +38,12 @@ public class WebController {
     public HttpResponse<OrderDTO> addOrder(@Body OrderDTO orderDTO) {
         OrderDTO savedOrder = orderService.addOrder(orderDTO);
         return HttpResponse.ok(savedOrder);
+    }
+
+    @Error(exception = RuntimeException.class, global = true)
+    public HttpResponse<String> handleErrors(HttpRequest request) {
+        return HttpResponse.serverError().body("Something Went wrong.");
+
     }
 
 }

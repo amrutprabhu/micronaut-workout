@@ -1,15 +1,15 @@
 package com.amrut.prabhu.order.port.out;
 
 import com.amrut.prabhu.order.domain.Order;
+import io.micronaut.data.annotation.Query;
+import io.micronaut.data.annotation.Repository;
+import io.micronaut.data.repository.CrudRepository;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface OrderRepository {
+@Repository
+public interface OrderRepository extends CrudRepository<Order, Long> {
 
-    Optional<Order> findById(Long id);
-
-    Order save(Order order);
-
+    @Query("select o from Order as o")
     List<Order> getAllOrders();
 }
