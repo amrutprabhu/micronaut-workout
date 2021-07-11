@@ -9,3 +9,26 @@ The code is designed using DDD hexagonal code structure, wherein the domain is d
 I have also created a basic integration test with TestContainers to test the entire flow from controller to database.
 
 In order to get away from manually creating a mapper between the domain objects and the transfer objects, I have made use of https://mapstruct.org/[Mapstruct] to generate a mapper for me. This is also to see how mapstruct annotation processing works with micronaut
+
+== Micronaut Application on AWS Lambda
+
+```
+mvnw package -Dpackaging=docker-native -Dmicronaut.runtime=lambda -Pgraalvm
+```
+
+== Micronaut Application as Native Image on AWS Lambda
+
+Set the lambda function to
+```
+io.micronaut.function.aws.proxy.MicronautLambdaHandler
+```
+
+
+```
+{
+  "body": "{\"orderName\":\"Order from Lambda Native Image\"}",
+  "resource": "/",
+  "path": "/",
+  "httpMethod": "PUT"
+}
+```
