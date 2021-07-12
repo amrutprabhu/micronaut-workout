@@ -4,14 +4,13 @@ import com.amrut.prabhu.order.port.in.OrderDTO;
 import com.amrut.prabhu.order.port.in.OrderService;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
-import io.micronaut.http.annotation.Body;
-import io.micronaut.http.annotation.Controller;
+import io.micronaut.http.annotation.*;
 import io.micronaut.http.annotation.Error;
-import io.micronaut.http.annotation.Put;
 import io.micronaut.validation.Validated;
 
 import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @Validated
@@ -22,6 +21,21 @@ public class WebController {
 
     public WebController(OrderService orderService) {
         this.orderService = orderService;
+    }
+
+    @Get("/{id}")
+    public HttpResponse<OrderDTO> getOrder(@PathVariable("id") Long id) {
+
+        Optional<OrderDTO> mayBeOrder = orderService.getOrder(id);
+        if (mayBeOrder.isPresent()) {
+            return HttpResponse.created(mayBeOrder.get());
+        }
+        return HttpResponse.notFound();
+    }
+
+    @Get
+    public HttpResponse<List<OrderDTO>> getAllOrders() {
+        return HttpResponse.ok(this.orderService.getOrders());
     }
 
     @Put

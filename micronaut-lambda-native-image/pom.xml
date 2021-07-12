@@ -48,11 +48,11 @@
       <artifactId>micronaut-function-aws-api-proxy</artifactId>
       <scope>compile</scope>
     </dependency>
-    <dependency>
-      <groupId>io.micronaut</groupId>
-      <artifactId>micronaut-runtime</artifactId>
-      <scope>compile</scope>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>io.micronaut</groupId>-->
+<!--      <artifactId>micronaut-runtime</artifactId>-->
+<!--      <scope>compile</scope>-->
+<!--    </dependency>-->
 <!--    <dependency>-->
 <!--      <groupId>io.micronaut.aws</groupId>-->
 <!--      <artifactId>micronaut-function-aws-api-proxy-test</artifactId>-->
@@ -119,7 +119,8 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.25</version>
+<!--      <version>8.0.25</version>-->
+      <scope>runtime</scope>
     </dependency>
 
 <!--    test dependencies-->

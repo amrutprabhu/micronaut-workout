@@ -15,4 +15,4 @@ jpa:
         hbm2ddl:
           auto: update
         show_sql: true
-        dialect: org.hibernate.dialect.MySQL57Dialect
+        dialect: org.hibernate.dialect.MySQL8Dialect

@@ -4,9 +4,9 @@ micronaut:
 
 datasources:
   default:
-    url: ${JDBC_URL:`jdbc:mysql://database-1.chiya2kvvqje.eu-central-1.rds.amazonaws.com:3306/ORDERS_DB?characterEncoding=UTF-8`}
-    username: ${JDBC_USER:admin}
-    password: ${JDBC_PASSWORD:rootroot}
+    url: jdbc:mysql://database-1.chiya2kvvqje.eu-central-1.rds.amazonaws.com:3306/ORDERS_DB?characterEncoding=UTF-8
+    username: admin
+    password: rootroot
     driverClassName: com.mysql.cj.jdbc.Driver
 jpa:
   default:
@@ -15,4 +15,4 @@ jpa:
         hbm2ddl:
           auto: update
         show_sql: true
-        dialect: org.hibernate.dialect.MySQL57Dialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
