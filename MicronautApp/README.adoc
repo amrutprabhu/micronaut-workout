@@ -1,0 +1,18 @@
+= JPA CRUD application using Micronaut
+
+In this project I am creating an application using Micronaut which will have JPA CRUD capabilities.
+
+This is to explore how we can create a CRUD application using Micronaut and check its performance.
+
+We first create a jar and then create a native image anc compare its performance.
+
+To create a jar simply run `mvn clean package`
+then you can run `java -jar target/MicronautApp-0.1.jar` to run the application.
+
+To achieve very high performance we can create a native image using the following command.
+
+```
+./mvnw clean package -Dpackaging=native-image
+```
+
+You can read more about it in my article here.
