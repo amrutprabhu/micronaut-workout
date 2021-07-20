@@ -18,7 +18,7 @@
     <jdk.version>11</jdk.version>
      <release.version>11</release.version>
     <micronaut.version>2.5.7</micronaut.version>
-    <micronaut.data.version>2.4.4</micronaut.data.version>
+    <micronaut.data.version>2.4.7</micronaut.data.version>
     <exec.mainClass>com.amrut.prabhu.Application</exec.mainClass>
     <micronaut.runtime>netty</micronaut.runtime>
     <maven.compiler.source>11</maven.compiler.source>
@@ -84,12 +84,10 @@
     <!--      <artifactId>micronaut-hibernate-jpa</artifactId>-->
     <!--      <scope>compile</scope>-->
     <!--    </dependency>-->
-
-    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.25</version>
+      <scope>compile</scope>
     </dependency>
 
 <!--    test dependencies-->

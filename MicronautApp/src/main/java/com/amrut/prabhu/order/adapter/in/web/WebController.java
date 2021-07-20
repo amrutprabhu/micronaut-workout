@@ -43,7 +43,6 @@ public class WebController {
     @Error(exception = RuntimeException.class, global = true)
     public HttpResponse<String> handleErrors(HttpRequest request) {
         return HttpResponse.serverError().body("Something Went wrong.");
-
     }
 
 }
