@@ -3,7 +3,7 @@ micronaut:
     name: micronautLambdaFunction
 datasources:
   default:
-    url: jdbc:mysql://database-1.chiya2kvvqje.eu-central-1.rds.amazonaws.com:3306/ORDERS_DB?characterEncoding=UTF-8
+    url: jdbc:mysql://database.wqjfadsojdp.eu-central-1.rds.amazonaws.com:3306/ORDERS_DB?characterEncoding=UTF-8
     username: admin
     password: nopass
     driverClassName: com.mysql.cj.jdbc.Driver
