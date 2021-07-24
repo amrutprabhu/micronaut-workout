@@ -68,11 +68,13 @@
 <!--      <artifactId>micronaut-http-server-netty</artifactId>-->
 <!--      <scope>compile</scope>-->
 <!--    </dependency>-->
+<!--    required only for native image building-->
     <dependency>
       <groupId>io.micronaut.aws</groupId>
       <artifactId>micronaut-function-aws-custom-runtime</artifactId>
       <scope>compile</scope>
     </dependency>
+    <!--    required only for native image building-->
     <dependency>
       <groupId>io.micronaut.data</groupId>
       <artifactId>micronaut-data-hibernate-jpa</artifactId>
@@ -94,11 +96,6 @@
       <scope>runtime</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.mapstruct</groupId>
-      <artifactId>mapstruct</artifactId>
-      <version>1.4.2.Final</version>
-    </dependency>
 <!--    <dependency>-->
 <!--      <groupId>io.micronaut</groupId>-->
 <!--      <artifactId>micronaut-runtime</artifactId>-->
