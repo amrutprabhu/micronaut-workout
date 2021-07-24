@@ -1,11 +1,9 @@
-package com.amrut.prabhu.order.adapter.in.web;
+package com.amrut.prabhu.order;
 
-import com.amrut.prabhu.order.port.in.OrderDTO;
-import com.amrut.prabhu.order.port.in.OrderService;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
-import io.micronaut.http.annotation.*;
 import io.micronaut.http.annotation.Error;
+import io.micronaut.http.annotation.*;
 import io.micronaut.validation.Validated;
 
 import javax.validation.ConstraintViolationException;
@@ -17,16 +15,16 @@ import java.util.Optional;
 @Controller
 public class WebController {
 
-    final private OrderService orderService;
+    final private OrderRepository orderRepository;
 
-    public WebController(OrderService orderService) {
-        this.orderService = orderService;
+    public WebController(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
     }
 
     @Get("/{id}")
-    public HttpResponse<OrderDTO> getOrder(@PathVariable("id") Long id) {
+    public HttpResponse<Order> getOrder(@PathVariable("id") Long id) {
 
-        Optional<OrderDTO> mayBeOrder = orderService.getOrder(id);
+        Optional<Order> mayBeOrder = this.orderRepository.findById(id);
         if (mayBeOrder.isPresent()) {
             return HttpResponse.created(mayBeOrder.get());
         }
@@ -34,14 +32,13 @@ public class WebController {
     }
 
     @Get
-    public HttpResponse<List<OrderDTO>> getAllOrders() {
-        return HttpResponse.ok(this.orderService.getOrders());
+    public HttpResponse<List<Order>> getAllOrders() {
+        return HttpResponse.ok(this.orderRepository.getAllOrders());
     }
 
     @Put
-    public HttpResponse<OrderDTO> addOrder(@Body @Valid OrderDTO orderDTO) {
-        System.out.println("--- Function called with :" + orderDTO.toString());
-        OrderDTO savedOrder = orderService.addOrder(orderDTO);
+    public HttpResponse<Order> addOrder(@Body @Valid Order order) {
+        Order savedOrder = orderRepository.save(order);
         return HttpResponse.ok(savedOrder);
     }
 

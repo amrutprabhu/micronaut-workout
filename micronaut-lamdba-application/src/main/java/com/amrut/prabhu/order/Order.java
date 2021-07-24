@@ -1,4 +1,4 @@
-package com.amrut.prabhu.order.domain;
+package com.amrut.prabhu.order;
 
 import javax.persistence.*;
 

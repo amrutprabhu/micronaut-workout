@@ -1,6 +1,5 @@
-package com.amrut.prabhu.order.port.out;
+package com.amrut.prabhu.order;
 
-import com.amrut.prabhu.order.domain.Order;
 import io.micronaut.data.annotation.Query;
 import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.repository.CrudRepository;

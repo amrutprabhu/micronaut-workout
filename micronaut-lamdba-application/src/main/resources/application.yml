@@ -4,10 +4,10 @@ micronaut:
 
 datasources:
   default:
-    url: jdbc:mysql://database.wqjfadsojdp.eu-central-1.rds.amazonaws.com:3306/ORDERS_DB?characterEncoding=UTF-8
-    username: admin
-    password: nopass
-    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:postgresql://database.weipsdmsi.eu-central-1.rds.amazonaws.com/orders_db?characterEncoding=UTF-8
+    username: postgres
+    password: rootroot
+    driverClassName: org.postgresql.Driver
 jpa:
   default:
     properties:
@@ -15,4 +15,3 @@ jpa:
         hbm2ddl:
           auto: update
         show_sql: true
-        dialect: org.hibernate.dialect.MySQL8Dialect
