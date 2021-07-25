@@ -2,15 +2,15 @@
 
 In this workout I am trying out how to work with micronaut. It apparently has better startup performance as compared to spring boot.
 
-[https://github.com/amrutprabhu/micronaut-workout/tree/master/MicronautApp[MicronautApp]] :
+[https://github.com/amrutprabhu/micronaut-workout/tree/master/MicronautApp[MicronautApp]] : 
 Here, I have created a project using DDD(Domain Driven Development) hexagonal code structure which performs simple CRUD operation on orders, Integration tests with TestContainers and Mapper using Mapstruct.
 
 
-[https://github.com/amrutprabhu/micronaut-workout/tree/master/micronaut-lambda-function[Micronaut Lambda Function]] :
+[https://github.com/amrutprabhu/micronaut-workout/tree/master/micronaut-lambda-function[Micronaut Lambda Function]] : 
 Here, I have created a project in which I use the Micronaut's serverless function feature to create AWS lambda function that handles incoming request. Its a very siple and straightforward project to demonstrate Micronaut's serverless capabilities.
 
 
-[https://github.com/amrutprabhu/micronaut-workout/tree/master/micronaut-lambda-application[Micronaut Lambda Application]] :
+[https://github.com/amrutprabhu/micronaut-workout/tree/master/micronaut-lambda-application[Micronaut Lambda Application]] : 
 Here, I have created a project in which I use the Micronaut's capability to create an applciation that can handle request that can come through an API Gateway. This allows me to do varous GET, PUT and POST operations. 
 
 
