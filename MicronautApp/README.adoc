@@ -1,18 +1,22 @@
-= JPA CRUD application using Micronaut
+= Micronaut CRUD Application With TestContainers and Mapstruct
 
-In this project I am creating an application using Micronaut which will have JPA CRUD capabilities.
+Here, I have created a project which performs simple CRUD operation on orders.
 
-This is to explore how we can create a CRUD application using Micronaut and check its performance.
+The code is designed using Domain Driven Design(DDD) hexagonal code structure, wherein the domain is decoupled from the external dependencies using ports.
 
-We first create a jar and then create a native image anc compare its performance.
+I have also created a basic integration test with TestContainers to test the entire flow from controller to database.
+
+== MapStruct
+In order to get away from manually creating a mapper between the domain objects and the transfer objects, I have made use of https://mapstruct.org/[Mapstruct] to generate a mapper for me. This is also to see how mapstruct annotation processing works with micronaut
+
 
 To create a jar simply run `mvn clean package`
-then you can run `java -jar target/MicronautApp-0.1.jar` to run the application.
+Then you can run `java -jar target/MicronautApp-0.1.jar` to run the application.
 
-To achieve very high performance we can create a native image using the following command.
+To achieve very high performance we can create a native image using GraalVM with the following command.
 
 ```
 ./mvnw clean package -Dpackaging=native-image
 ```
 
-You can read more about it in my article here.
+You can read more about it in my article https://refactorfirst.com/springboot-developers-guide-to-micronaut.html[here].
