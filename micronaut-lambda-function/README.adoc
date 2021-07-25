@@ -1,16 +1,14 @@
 = AWS Lambda function with Micronaut
 
-In this project I am creating an AWS Lambda function using Micronaut.
+In this project I am creating an AWS Lambda function using Micronaut and then check its performance.
 
-In this I want to see how we can create a Lambda function and then check its performance.
+We deploy this as a jar on a JVM runtime and also try creating a native image with AWS custom runtime.
 
-We deploy this as a jar on a JVM runtime and also try creating a native image.
+To create a jar simply run `mvn clean package`
 
-to create a jar simply run `mvn clean package`
-
-To create a native image for AWS lambda build the native image using the command
+To create a native image for AWS lambda, You would need graalvm and then run following the command
 ```
 ./mvnw clean package -Dpackaging=docker-native -Dmicronaut.runtime=lambda
 ```
 
-You can read more about it in my article here.
+You can read more about it in my article https://refactorfirst.com/[here].
