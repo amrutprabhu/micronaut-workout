@@ -1,34 +1,17 @@
-= Micronaut With TestContainers and Mapstruct
+= Micronaut Framework Example Workout
 
-In this workout I am trying out how to work with  micronaut. It apparently has better startup performance as compared to spring boot.
+In this workout I am trying out how to work with micronaut. It apparently has better startup performance as compared to spring boot.
 
-Here, I have created a project which performs simple CRUD operation on orders.
-
-The code is designed using DDD hexagonal code structure, wherein the domain is decoupled from teh external dependencies using ports.
-
-I have also created a basic integration test with TestContainers to test the entire flow from controller to database.
-
-In order to get away from manually creating a mapper between the domain objects and the transfer objects, I have made use of https://mapstruct.org/[Mapstruct] to generate a mapper for me. This is also to see how mapstruct annotation processing works with micronaut
-
-== Micronaut Application on AWS Lambda
-
-```
-mvnw package -Dpackaging=docker-native -Dmicronaut.runtime=lambda -Pgraalvm
-```
-
-== Micronaut Application as Native Image on AWS Lambda
-
-Set the lambda function to
-```
-io.micronaut.function.aws.proxy.MicronautLambdaHandler
-```
+[https://github.com/amrutprabhu/micronaut-workout/tree/master/MicronautApp[MicronautApp]] :
+Here, I have created a project using DDD(Domain Driven Development) hexagonal code structure which performs simple CRUD operation on orders, Integration tests with TestContainers and Mapper using Mapstruct.
 
 
-```
-{
-  "body": "{\"orderName\":\"Order from Lambda Native Image\"}",
-  "resource": "/",
-  "path": "/",
-  "httpMethod": "PUT"
-}
-```
+[https://github.com/amrutprabhu/micronaut-workout/tree/master/micronaut-lambda-function[Micronaut Lambda Function]] :
+Here, I have created a project in which I use the Micronaut's serverless function feature to create AWS lambda function that handles incoming request. Its a very siple and straightforward project to demonstrate Micronaut's serverless capabilities.
+
+
+[https://github.com/amrutprabhu/micronaut-workout/tree/master/micronaut-lambda-application[Micronaut Lambda Application]] :
+Here, I have created a project in which I use the Micronaut's capability to create an applciation that can handle request that can come through an API Gateway. This allows me to do varous GET, PUT and POST operations. 
+
+
+I have written about all of these on my website https://refactorfirst.com[RefactorFirst.com]
