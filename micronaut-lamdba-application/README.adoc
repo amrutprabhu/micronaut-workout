@@ -1,0 +1,17 @@
+= AWS Lambda function with Micronaut Application
+
+In this project I am creating an AWS Lambda function which will hold an application that can take in requests from an API gateway. 
+This mean I can make different types of requests, using GET, PUT, POST, etc.
+
+Finally then I want to check its performance. 
+
+We can deploy this as a jar on a JVM runtime or create a native image with AWS custom runtime.
+
+To create a jar simply run `mvn clean package`
+
+To create a native image for AWS lambda, You would need graalvm and then run following the command
+```
+./mvnw clean package -Dpackaging=docker-native -Dmicronaut.runtime=lambda
+```
+
+You can read more about it in my article https://refactorfirst.com/[here].
